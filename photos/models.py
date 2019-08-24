@@ -3,7 +3,6 @@ import datetime as dt
 
 # Create your models here.
 
-
 class Category(models.Model):
     travel = models.CharField(max_length=50)
     food = models.CharField(max_length=50)
@@ -29,12 +28,14 @@ class Image(models.Model):
     image_name = models.CharField(max_length=50)
     descritption = models.TextField()
     url = models.CharField(max_length=2000)
+    editor = models.ManyToManyField(Editor, default="Joe")
     editor = models.ForeignKey(
         Editor,
-        on_delete=models.DO_NOTHING)
+        on_delete=models.CASCADE, default="Joe")
+    category = models.ManyToManyField(Category, default="Joe")
     category = models.ForeignKey(
         Category, 
-        on_delete=models.CASCADE)
+        on_delete=models.CASCADE, default="Joe")
 
     def __str__(self):
         return self.name
