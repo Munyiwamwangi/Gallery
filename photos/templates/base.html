@@ -5,6 +5,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <!-- Angular Material style sheet -->
 
   {% if title %}
   <title>Pride in our Gallery - {{title}}</title>
@@ -14,8 +15,6 @@
 
   {% block styles %}
   {% bootstrap_css %}
-
-  <meta charset="utf-8">
 
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300, 400, 700" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="{% static 'css/animate.css' %} ">
@@ -27,33 +26,46 @@
   <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap-datepicker.css' %} ">
   <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %} ">
 
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+  <!-- Bootstrap core CSS -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Material Design Bootstrap -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.8.8/css/mdb.min.css" rel="stylesheet">
+
   {% endblock %}
 
 </head>
 <body>
-	{% include "navbar.html" %}
-    {% block content %}
-    <h5 style="color: green;" class='text-center'>News for {{date|date:"l d-F Y"}}</h5>
-    {%endblock%}
+ {% include "navbar.html" %}
+ {% block content %}
+ <h5 style="color: green;" class='text-center'>News for {{date|date:"l d-F Y"}}</h5>
+ {%endblock%}
 
-    {% block scripts %}
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <!-- Compiled and minified CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-    <!-- Compiled and minified JavaScript -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+ {% block scripts %}
 
-     {% bootstrap_javascript %}
-     
-     <script src="{% static 'js/jquery-3.2.1.min.js' %}"></script>
-     <script src="{% static 'js/popper.min.js' %}"></script>
-     <script src="{% static 'js/bootstrap.min.js' %}"></script>
-     <script src="{% static 'js/owl.carousel.min.js' %}"></script>
-     <script src="{% static 'js/bootstrap-datepicker.js' %}"></script>
-     <script src="{% static 'js/jquery.timepicker.min.js' %}"></script>
-     <script src="{% static 'js/jquery.waypoints.min.js' %}"></script>
-     <script src="{% static 'js/main.js' %}"></script>
+ {% bootstrap_javascript %}
+ 
+ <script src="{% static 'js/jquery-3.2.1.min.js' %}"></script>
+ <script src="{% static 'js/popper.min.js' %}"></script>
+ <script src="{% static 'js/bootstrap.min.js' %}"></script>
+ <script src="{% static 'js/owl.carousel.min.js' %}"></script>
+ <script src="{% static 'js/bootstrap-datepicker.js' %}"></script>
+ <script src="{% static 'js/jquery.timepicker.min.js' %}"></script>
+ <script src="{% static 'js/jquery.waypoints.min.js' %}"></script>
+ <script src="{% static 'js/main.js' %}"></script>
 
-    {% endblock %}
+ <!-- JQuery -->
+ <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+ <!-- Bootstrap tooltips -->
+ <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js"></script>
+ <!-- Bootstrap core JavaScript -->
+ <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+ <!-- MDB core JavaScript -->
+ <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.8.8/js/mdb.min.js"></script>
+ <!-- Compiled and minified CSS -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+ {% endblock %}
 </body>
 </html>
