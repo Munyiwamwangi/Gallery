@@ -5,12 +5,11 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <!-- Angular Material style sheet -->
 
   {% if title %}
-  <title>Pride in our Gallery - {{title}}</title>
+  <title>Pride Memories {{title}}</title>
   {% else %}
-  <title> Pride in our Gallery </title>
+  <title> Pride Memories</title>
   {% endif %}
 
   {% block styles %}
@@ -39,7 +38,7 @@
 <body>
  {% include "navbar.html" %}
  {% block content %}
- <h5 style="color: green;" class='text-center'>News for {{date|date:"l d-F Y"}}</h5>
+ <h5 style="color: green;" class='text-center'>Images for {{date|date:"l d-F Y"}}</h5>
  {%endblock%}
 
  {% block scripts %}

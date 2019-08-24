@@ -8,8 +8,8 @@ class Category(models.Model):
 
     def __str__(self):
         return self.name
-class Locate(models.Model):
-    location = models.CharField(max_length =50)
+class Location(models.Model):
+    image_location = models.CharField(max_length =50)
 
     def __str__(self):
         return self.name
@@ -18,7 +18,7 @@ class Editor(models.Model):
     name = models.CharField(max_length=50)
     email = models.EmailField()
     phone_number = models.CharField(max_length=10, blank=True)
-    pub_date = models.DateTimeField(auto_now_add=True)
+    
 
     def __str__(self):
         return self.name
@@ -28,12 +28,11 @@ class Image(models.Model):
     title = models.CharField(max_length=50)
     descritption = models.TextField()
     url = models.TextField()
+    pub_date = models.DateTimeField(auto_now_add=True)
     location = models.ForeignKey(
-        Locate, 
+        Location, 
         on_delete=models.CASCADE)
-    editor = models.ForeignKey(
-        Editor,
-        on_delete=models.CASCADE)
+    editor = models.ManyToManyField(Editor)
     category = models.ForeignKey(
         Category, 
         on_delete=models.CASCADE)

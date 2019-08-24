@@ -4,7 +4,7 @@
 {{block.super}}
 
 <div class="container">
-    <!-- Looping through the news -->
+    <!-- Looping through the images-->
     {% for image_item in images %}
     <div class="row">
     <h4> Pride in our Gallery</h4>
@@ -21,17 +21,17 @@
 
     {% empty %}
     <div class="row">
-        <h5 class="text-center hd"> There are No Image Items, please check in tomorr</h5>
+        <h5 class="text-center"> No new Art, please check in tommorrow.</h5>
     </div>
     {% endfor %}
 
     {% comment %} past-images {% endcomment %}
     <div class="container">
-	<!-- looping through news Articles -->
+	<!-- looping through Images items -->
 	<div class="row">
 		{% for image_items in images %}
 		<div class="col-xs-6 col-md-6 col-lg-6 col-sm-6">
-			<!-- Displaying News Articles -->
+			<!-- Displaying image items -->
 			<h2 class="text-center">
 				{ image_item.title }
 			</h2>
@@ -39,9 +39,9 @@
 	</div>
 	{% empty %}
 	<div class="row">
-		<h2 class="text-center">
-			There are No Image Items Today
-		</h2>
+		<h6 class="text-center">
+			No Art Items Today
+		</h6>
 	</div>
 	{% endfor %}
 </div>
