@@ -21,9 +21,30 @@
 
     {% empty %}
     <div class="row">
-        <h5 class="text-center hd"> There are No News Items</h5>
+        <h5 class="text-center hd"> There are No Image Items, please check in tomorr</h5>
     </div>
     {% endfor %}
+
+    {% comment %} past-images {% endcomment %}
+    <div class="container">
+	<!-- looping through news Articles -->
+	<div class="row">
+		{% for image_items in images %}
+		<div class="col-xs-6 col-md-6 col-lg-6 col-sm-6">
+			<!-- Displaying News Articles -->
+			<h2 class="text-center">
+				{ image_item.title }
+			</h2>
+		</div>
+	</div>
+	{% empty %}
+	<div class="row">
+		<h2 class="text-center">
+			There are No Image Items Today
+		</h2>
+	</div>
+	{% endfor %}
+</div>
 </div>
 {% endblock %}
 
