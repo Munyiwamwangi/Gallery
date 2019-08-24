@@ -27,7 +27,7 @@ class Image(models.Model):
     image = models.ImageField(upload_to='articles/', default="")
     image_name = models.CharField(max_length=50)
     descritption = models.TextField()
-    url = models.CharField()
+    url = models.CharField(max_length=2000)
     location = models.ForeignKey(Editor, on_delete=models.CASCADE)
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
 
