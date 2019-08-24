@@ -15,8 +15,8 @@ class Location(models.Model):
         return self.name
     
 class Editor(models.Model):
-    name = models.CharField(max_length=50)
-    email = models.EmailField()
+    name = models.CharField(max_length=50, default='Anonymous')
+    email = models.EmailField(max_length=100, default='Anonymous')
     phone_number = models.CharField(max_length=10, blank=True)
     
 
@@ -48,18 +48,24 @@ class Image(models.Model):
         
     def delete_image(self):
         self.delete()
+        
+    @classmethod
+    def todays_images(cls):
+        today = dt.date.today()
+        images = cls.objects.filter(pub_date__date=today)
+        return images
 
     @classmethod
     def search_image_category(cls, search_term):
-        photos = cls.objects.filter(category__icontains=search_term)
-        return photos
+        images = cls.objects.filter(category__icontains=search_term)
+        return images
     
     @classmethod
     def get_image_by_id(cls, image_id):
-        photos = cls.objects.filter(title__icontains=image_id)
-        return photos
+        images = cls.objects.filter(title__icontains=image_id)
+        return images
     
     @classmethod
     def search_by_location(cls, search_term):
-        photos = cls.objects.filter(location__icontains=search_term)
-        return photos
+        images = cls.objects.filter(location__icontains=search_term)
+        return images
