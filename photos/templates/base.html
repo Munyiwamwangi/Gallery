@@ -5,16 +5,16 @@
 <head>
   <meta charset="utf-8">
 
-  {% if title %}
-  <title>Pride in our Gallery - {{title}}</title>
-  {% else %}
-    <title> Pride in our Gallery </title>
-  {% endif %}
+      {% if title %}
+      <title>Pride in our Gallery - {{title}}</title>
+      {% else %}
+        <title> Pride in our Gallery </title>
+      {% endif %}
 
-  {% block styles %}
-    {% bootstrap_css %}
-    <link rel="stylesheet" type="text/css" href="{% static 'css/basenews.css' %} ">
-  {% endblock %}
+      {% block styles %}
+        {% bootstrap_css %}
+        <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %} ">
+      {% endblock %}
 
 </head>
 <body>
@@ -27,10 +27,19 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <!-- Compiled and minified CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-
     <!-- Compiled and minified JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
      {% bootstrap_javascript %}
+     
+     <script src="{% static 'js/jquery-3.2.1.min.js' %}"></script>
+     <script src="{% static 'js/popper.min.js' %}"></script>
+     <script src="{% static 'js/bootstrap.min.js' %}"></script>
+     <script src="{% static 'js/owl.carousel.min.js' %}"></script>
+     <script src="{% static 'js/bootstrap-datepicker.js' %}"></script>
+     <script src="{% static 'js/jquery.timepicker.min.js' %}"></script>
+     <script src="{% static 'js/jquery.waypoints.min.js' %}"></script>
+     <script src="{% static 'js/main.js' %}"></script>
 
     {% endblock %}
 </body>
