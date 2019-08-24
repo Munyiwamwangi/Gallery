@@ -2,14 +2,7 @@ from django.db import models
 import datetime as dt
 
 # Create your models here.
-class Editor(models.Model):
-    name = models.CharField(max_length=50)
-    email = models.EmailField()
-    phone_number = models.CharField(max_length=10, blank=True)
-    pub_date = models.DateTimeField(auto_now_add=True)
 
-    def __str__(self):
-        return self.name
 
 class Category(models.Model):
     travel = models.CharField(max_length=50)
@@ -18,18 +11,30 @@ class Category(models.Model):
     landscape = models.CharField(max_length=50)
     portrait = models.CharField(max_length=50)
     heritage = models.CharField(max_length=50)
-    
+
     def __str__(self):
         return self.name
-    
+
+class Editor(models.Model):
+    name = models.CharField(max_length=50)
+    email = models.EmailField()
+    phone_number = models.CharField(max_length=10, blank=True)
+    pub_date = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.name
     
 class Image(models.Model):
     image = models.ImageField(upload_to='articles/', default="")
     image_name = models.CharField(max_length=50)
     descritption = models.TextField()
     url = models.CharField(max_length=2000)
-    location = models.ForeignKey(Editor, on_delete=models.CASCADE)
-    category = models.ForeignKey(Category, on_delete=models.CASCADE)
+    editor = models.ForeignKey(
+        Editor,
+        on_delete=models.DO_NOTHING)
+    category = models.ForeignKey(
+        Category, 
+        on_delete=models.CASCADE)
 
     def __str__(self):
         return self.name
