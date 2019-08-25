@@ -11,12 +11,14 @@ def welcome(request):
 def about(request):
     return render(request, "about.html")
 
-def todays_images(request):
+
+def images_today(request):
     date = dt.date.today()
     images = Image.todays_images()
     # FUNCTION TO CONVERT DATE OBJECT TO FIND EXACT DAY
     # day = convert_dates(date)
-    return render(request, 'today-images.html', {"date": date, "images": images})
+    return render(request, 'all-news/today-news.html', {"date": date, "images": images})
+
 
 def convert_dates(dates):
 
@@ -44,7 +46,7 @@ def past_days_images(request, past_date):
 
     day = convert_dates(date)
     if date == dt.date.today():
-        return redirect(todays_images)
+        return redirect(images_today)
 
     images = Image.days_images(date)
     return render(request, 'past-images.html', {"date": date, "images": images})
@@ -52,22 +54,21 @@ def past_days_images(request, past_date):
 
 def search_results(request):
 
-    if 'image' in request.GET and request.GET["image"]:
-        search_term = request.GET.get("image")
+    if 'article' in request.GET and request.GET["article"]:
+        search_term = request.GET.get("article")
         searched_images = Image.search_by_title(search_term)
-        image = Image.search_by_title(search_term)
         message = f"{search_term}"
 
         return render(request, 'search.html', {"message": message, "images": searched_images})
 
     else:
         message = "You haven't searched for any term"
-        return render(request, 'search.html', {"message": message})
+        return render(request, 'all-news/search.html', {"message": message})
 
 
-def image(request, image_id):
+def image(request, article_id):
     try:
-        image = Image.objects.get(id=image)
+        article = Image.objects.get(id=article_id)
     except DoesNotExist:
         raise Http404()
-    return render(request, "image.html", {"image": image})
+    return render(request, "all-news/article.html", {"article": article})
