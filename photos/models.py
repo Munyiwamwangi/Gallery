@@ -4,12 +4,12 @@ import datetime as dt
 # Create your models here.
 
 class Category(models.Model):
-    image_category = models.CharField(max_length=50, default = 'Epic')
+    location = models.CharField(max_length=50, default = 'Epic')
 
     def __str__(self):
         return self.name
 class Location(models.Model):
-    image_location = models.CharField(max_length =50)
+    category = models.CharField(max_length =50)
 
     def __str__(self):
         return self.name
