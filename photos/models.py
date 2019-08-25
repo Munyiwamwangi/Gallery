@@ -2,7 +2,6 @@ from django.db import models
 import datetime as dt
 
 # Create your models here.
-
 class Category(models.Model):
     location = models.CharField(max_length=50, default = 'Epic')
 
@@ -38,7 +37,7 @@ class Image(models.Model):
         on_delete=models.DO_NOTHING)
 
     def __str__(self):
-        return self.name
+        return self.title
 
     def save_image(self):
         self.save()
@@ -54,6 +53,12 @@ class Image(models.Model):
         today = dt.date.today()
         images = cls.objects.filter(pub_date__date=today)
         return images
+    
+    @classmethod
+    def all_images(cls, search_term):
+        all_images = cls.objects(image)
+        return all_images
+
 
     @classmethod
     def search_image_by_category(cls, search_term):

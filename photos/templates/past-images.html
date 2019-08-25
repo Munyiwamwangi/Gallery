@@ -1,0 +1,25 @@
+    {% block content %}
+
+    <div class="container">
+      {% comment %} past-images {% endcomment %}
+      <div class="row">
+       <!-- looping through Images items -->
+       <div class="row">
+        {% for image_items in images %}
+        <div class="col-xs-6 col-md-6 col-lg-6 col-sm-6">
+         <!-- Displaying past image items -->
+         <h2 class="text-center">
+          {image_item.title}
+        </h2>
+      </div>
+    </div>
+    {% empty %}
+    <div class="row">
+      <h6 class="text-center">
+       No Past Art
+     </h6>
+   </div>
+   {% endfor %}
+ </div>
+</div>
+{% endblock %}
