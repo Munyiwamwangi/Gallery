@@ -16,82 +16,65 @@
 	</head>
 	<body>
 		<div>
-					<nav class="mb-1 navbar navbar-expand-lg navbar-dark default-color">
-						<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-333"
-						aria-controls="navbarSupportedContent-333" aria-expanded="false" aria-label="Toggle navigation">
-						<span class="navbar-toggler-icon"></span>
-					</button>
-					<div class="collapse navbar-collapse" id="navbarSupportedContent-333">
-						<ul class="navbar-nav mr-auto">
-							<li class="nav-item active">
-								<a class="navbar-brand" href="{% url 'home' %}">Memories</a>
-								</a>
-							</li>
-							<li class="nav-item">
-								<a class="navbar-brand" href="{% url 'home' %}">Join Us</a>
-							</li>
-							<li class="nav-item">
-								<a class="navbar-brand" href="{% url 'about' %}">About</a>
-							</li>
-							<li class="nav-item dropdown">
-								<a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink-333" data-toggle="dropdown"
-								aria-haspopup="true" aria-expanded="false">Filter
-							</a>
-							<div class="dropdown-menu dropdown-default" aria-labelledby="navbarDropdownMenuLink-333">
-								<a class="dropdown-item" href="#">Title</a>
-								<a class="dropdown-item" href="#">Location</a>
-								<a class="dropdown-item" href="#">Image Id</a>
-								
-							</div>
-						</li>
-					</ul>
-					<ul class="navbar-nav ml-auto nav-flex-icons">
-						<li class="nav-item">
-							<a class="nav-link waves-effect waves-light">
-								<i class="fab fa-twitter"></i>
-							</a>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link waves-effect waves-light">
-								<i class="fab fa-google-plus-g"></i>
-							</a>
-						</li>
-						<li class="nav-item dropdown">
-							<a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink-333" data-toggle="dropdown"
-							aria-haspopup="true" aria-expanded="false">
-							<i class="fas fa-user"></i>
-						</a>
-						<div class="dropdown-menu dropdown-menu-right dropdown-default"
-						aria-labelledby="navbarDropdownMenuLink-333">
-						<a class="dropdown-item" href="#">Action</a>
-						<a class="dropdown-item" href="#">Another action</a>
-						<a class="dropdown-item" href="#">Something else here</a>
-					</div>
+			<nav class="mb-1 navbar navbar-expand-lg navbar-dark default-color">
+				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-333"
+				aria-controls="navbarSupportedContent-333" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarSupportedContent-333">
+				<ul class="navbar-nav mr-auto">
+					<li class="nav-item active">
+						<a class="navbar-brand" href="{% url 'home' %}">Memories</a>
+					</a>
 				</li>
-			</ul>
+				<li class="nav-item">
+					<a class="navbar-brand" href="{% url 'home' %}">Join Us</a>
+				</li>
+				<li class="nav-item">
+					<a class="navbar-brand" href="{% url 'about' %}">About</a>
+				</li>
+				<li class="nav-item dropdown">
+					<a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink-333" data-toggle="dropdown"
+					aria-haspopup="true" aria-expanded="false">Filter
+				</a>
+				<div class="dropdown-menu dropdown-default" aria-labelledby="navbarDropdownMenuLink-333">
+					<a class="dropdown-item" href="#">Title</a>
+					<a class="dropdown-item" href="#">Location</a>
+					<a class="dropdown-item" href="#">Find by Id</a>
+
+				</div>
+			</li>
+		</ul>
+		<!-- <ul class="navbar-nav ml-auto nav-flex-icons">
+			<li class="nav-item">
+				<a class="nav-link waves-effect waves-light">
+					<i class="fab fa-twitter"></i>
+				</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link waves-effect waves-light">
+					<i class="fab fa-google-plus-g"></i>
+				</a>
+			</li>  -->
+			<!-- Adding a search form  -->
+			<form class="fl form-inline my-1">
+				<div class="md-form form-sm my-0">
+					<input class="form-control form-control-sm mr-sm-2 mb-0" type="text" placeholder="Search" name='image'
+					aria-label="Search">
+				</div>
+				<button class="btn btn-outline-white btn-sm my-0" name = 'image' type="submit">Search
+				</button>
+			</form>
 		</div>
-	</nav>
-	<!--/.Navbar -->
-	
+		<!-- search form end -->
+	</li>
+</ul>
 </div>
-
-
-<!-- Adding a search form  -->
-<form class="fl form-inline my-1">
-	<div class="md-form form-sm my-0">
-		<input class="form-control form-control-sm mr-sm-2 mb-0" type="text" placeholder="Search" name='image'
-		aria-label="Search">
-	</div>
-	<button class="btn btn-outline-white btn-sm my-0" name = 'image' type="submit">Search
-	</button>
-</form>
-</div>
-<!-- search form end -->
-</div>
-
+</nav>
+<!-- Navbar  ENDS -->
 
 <div>
-	{% comment %} script {% endcomment %}
+	<!-- scripts -->
 	<!-- JQuery -->
 	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 	<!-- Bootstrap tooltips -->
@@ -101,9 +84,7 @@
 	<!-- MDB core JavaScript -->
 	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.8.8/js/mdb.min.js"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-
+</div>
+</div>
 </body>
 </html>
-
-
-

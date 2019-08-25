@@ -3,12 +3,12 @@ import datetime as dt
 
 # Create your models here.
 class Category(models.Model):
-    location = models.CharField(max_length=50, default = 'Epic')
+    category = models.CharField(max_length=50, default = 'Epic')
 
     def __str__(self):
         return self.location
 class Location(models.Model):
-    category = models.CharField(max_length =50)
+    location = models.CharField(max_length =50)
 
     def __str__(self):
         return self.category
