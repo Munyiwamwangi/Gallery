@@ -2,13 +2,13 @@ from django.db import models
 import datetime as dt
 
 # Create your models here.
-class Category(models.Model):
-    category = models.CharField(max_length=50, default = 'Epic')
+class Location(models.Model):
+    location = models.CharField(max_length=50)
 
     def __str__(self):
         return self.location
-class Location(models.Model):
-    location = models.CharField(max_length =50)
+class Category(models.Model):
+    category = models.CharField(max_length=50, default='Epic')
 
     def __str__(self):
         return self.category
@@ -73,4 +73,9 @@ class Image(models.Model):
     @classmethod
     def search_by_location(cls, search_term):
         images = cls.objects.filter(location__icontains=search_term)
+        return images
+
+    @classmethod
+    def search_by_title(cls, search_term):
+        images = cls.objects.filter(title__icontains=search_term)
         return images
