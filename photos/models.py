@@ -26,8 +26,10 @@ class Image(models.Model):
     image = models.ImageField(upload_to='images/', default="")
     title = models.CharField(max_length=50)
     descritption = models.TextField()
+    url = models.TextField(default="")
     pub_date = models.DateTimeField(auto_now_add=True)
     editor = models.ManyToManyField(Editor)
+
     location = models.ForeignKey(
         Location, 
         on_delete=models.DO_NOTHING)
