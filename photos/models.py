@@ -7,12 +7,12 @@ class Category(models.Model):
     location = models.CharField(max_length=50, default = 'Epic')
 
     def __str__(self):
-        return self.name
+        return self.location
 class Location(models.Model):
     category = models.CharField(max_length =50)
 
     def __str__(self):
-        return self.name
+        return self.category
     
 class Editor(models.Model):
     name = models.CharField(max_length=50, default='Anonymous')
