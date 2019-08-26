@@ -80,9 +80,8 @@ class Image(models.Model):
         return images
     
     @classmethod
-    def get_image_by_id(cls, image_id):
-        images = cls.objects.filter(image_id)
-        return images
+   def get_image_by_id(cls,number):
+       return cls.objects.get(pk = number)
 
     @classmethod
     def search_by_location(cls, search_term):
