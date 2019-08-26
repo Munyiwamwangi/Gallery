@@ -18,7 +18,7 @@ def images_today(request):
     images = Image.todays_images()
     # FUNCTION TO CONVERT DATE OBJECT TO FIND EXACT DAY
     # day = convert_dates(date)
-    return render(request, 'todays.html', {"date": date, "images": images})
+    return render(request, 'home.html', {"date": date, "images": images})
 
 
 def convert_dates(dates):
