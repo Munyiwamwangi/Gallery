@@ -69,19 +69,20 @@ class Image(models.Model):
         images = cls.objects.filter(pub_date__date=today)
         return images
     
-    @classmethod
-    def all_images(cls, search_term):
-        all_images = cls.objects(image)
-        return all_images
+     @classmethod
+    def all_images(cls):
+        images = cls.objects.all()
+        return images
 
     @classmethod
-    def search_image_by_category(cls, search_term):
-        images = cls.objects.filter(category__icontains=search_term)
+    def search_by_category(cls,search_term):
+        # images = cls.objects.filter(categories__icontains=search_term)
+        images = cls.objects.filter(category__category=search_term) 
         return images
     
     @classmethod
-   def get_image_by_id(cls,number):
-       return cls.objects.get(pk = number)
+    def get_image_by_id(cls,number):
+        return cls.objects.get(pk = number)
 
     @classmethod
     def search_by_location(cls, search_term):

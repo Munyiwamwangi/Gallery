@@ -8,6 +8,12 @@ from .models import Editor, Category, Image
 def about(request):
     return render(request, "about.html")
 
+def images_today(request):
+    images = Image.all_images()
+    # FUNCTION TO CONVERT DATE OBJECT TO FIND EXACT DAY
+    # day = convert_dates(date)
+    return render(request, 'all_images.html', {"images": images})
+
 
 def images_today(request):
     date = dt.date.today()
