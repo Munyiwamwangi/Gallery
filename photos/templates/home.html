@@ -7,49 +7,30 @@
         <!-- Looping through the images-->
         {% for image_item in images %}
         <div class="row">
-            <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+            <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 container-fluid" style="display: flex;
+           flex-wrap: wrap;" >
                 <h3 style="font-size: 15px" class="text-center hd">{{ image_item.title }}</h3>
 
                 <h4 style="font-style: italic; font-size: 13px;" class="text-left hb">{{ image_item.descritption}}</h4>
             </div>
             <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-                <img data-target="#{{image_item.id}}" src="{{ image_item.image.url}}" class="img-responsive" alt="Image">
 
+                       <img src="{{image_item.image.url}}" class="img-responsive img-fluid"
+                       data-target="{{image_item.id}}">
             </div>
-            </div>
+            
+            <div class="col-md-2">
+                           <button class="btn btn-sm" onclick="copyToClipboard('{{image_item.url}}')">Full story</button>
+                       </div>
 
             {% empty %}
             <div class="row">
                 <h5 class="text-center"> No new Art, please check in tommorrow. Meanwhile, past, work</h5>
             </div>
             
-            <!-- modal content -->
-
-            <div class="modal" id="{{image_item.id}}" tabindex="-1" role="dialog"
-                       aria-labelledby="exampleModalLabel" aria-hidden="true">
-                       <div class="modal-dialog" role="document">
-                           <div class="modal-body">
-                               <div class="row">
-                                   <div class="col-sm-6 col-md-7">
-                                       <img src="{{image_item.image.url}}" class="img-fluid" id="modal">
-                                   </div>
-                                   <div class="col-sm-6 col-md-5" id="description">
-                                           <ul style="list-style-type:none; color:white;">
-                                               <li>Photo Theme: {{image_item.title}}</li>
-                                               <li>description: {{image_item.description}}</li>
-                                               <li>category: {{image_item.category}}</li>
-                                               <li>uploaded: {{image_item.location}}</li>
-                                               <li>uploaded: {{image_item.pub_date}}</li>
-                                           </ul>
-                               </div>
-                               </div>
-                           </div>
-                       </div>
-                   </div>
-
-            <!-- modal content -->
+            
             {% endfor %}
- 
+ </div>
 </div>
 {% endblock %}
 
