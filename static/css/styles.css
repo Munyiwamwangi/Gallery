@@ -1,10 +1,6 @@
-body {
-  background: #fff;
-  font-family: "Open Sans", Arial, sans-serif;
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 1.8;
-  color: #868e96;
+
+* {
+  background-color: #c4c4c4;
 }
 .fl{
   float: right;
