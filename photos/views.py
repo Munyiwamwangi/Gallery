@@ -3,24 +3,22 @@ from django.http import HttpResponse, Http404
 import datetime as dt
 from .models import Editor, Category, Image
 
+
 # Create your views here.
 
 def about(request):
     return render(request, "about.html")
 
-def images_today(request):
-    images = Image.all_images()
-    # FUNCTION TO CONVERT DATE OBJECT TO FIND EXACT DAY
-    # day = convert_dates(date)
-    return render(request, 'all_images.html', {"images": images})
-
+def welcome(request):
+    images=Image.objects.all()
+    return render(request,'todays.html',{"images":images})
 
 def images_today(request):
     date = dt.date.today()
     images = Image.todays_images()
     # FUNCTION TO CONVERT DATE OBJECT TO FIND EXACT DAY
     # day = convert_dates(date)
-    return render(request, 'home.html', {"date": date, "images": images})
+    return render(request, 'todays.html', {"date": date, "images": images})
 
 
 def convert_dates(dates):
@@ -34,7 +32,6 @@ def convert_dates(dates):
     # Returning the actual day of the week
     day = days[day_number]
     return day
-
 
 def past_days_images(request, past_date):
     #Converts data from the string to url
@@ -56,18 +53,16 @@ def past_days_images(request, past_date):
 
 
 def search_results(request):
-
     if 'image' in request.GET and request.GET["image"]:
         search_term = request.GET.get("image")
-        searched_images = Image.search_by_title(search_term)
+        searched_images = Image.search_by_category(search_term)
         message = f"{search_term}"
 
-        return render(request, 'search.html', {"message": message, "images": searched_images})
+        return render(request,'search.html',{"message":message,"images":searched_images})
 
     else:
-        message = "You haven't searched for any term"
-        return render(request, 'search.html', {"message": message})
-
+        message="You haven't searched for any term"
+        return render(request,'search.html',{"message":message})
 
 def image(request, image_id):
     try:

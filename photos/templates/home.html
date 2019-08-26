@@ -4,6 +4,12 @@
 {{block.super}}
 
 <div class="container">
+  <script>
+    function copyToClipboard(element) {
+      $(element).select();
+      document.execCommand("copy");
+    }
+  </script>
     <!-- Looping through the images-->
     {% for image_item in images %}
     <div class="row">
@@ -21,9 +27,10 @@
        <img src="{{image_item.image.url}}" class="img-responsive img-fluid">
    </div>
 
-   <div class="col-md-2">
-       <button class="btn btn-sm" onclick="copyToClipboard('{{image_item.url}}')">Full story</button>
-   </div>
+   <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10 padding-1">
+    <input id="{{data.id}}-url" class="form-control input-md responsive" type="text"
+    value="{{data.image.url}}">
+  </div>
 
    {% empty %}
    <div class="row">

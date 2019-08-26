@@ -1,0 +1,69 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{{super }}
+<head>
+  </div>
+  <!-- <script src="https://cdn.jsdelivr.net/clipboard.js/1.5.3/clipboard.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js"
+    integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script> -->
+  <script>
+    function copyToClipboard(element) {
+      $(element).select();
+      document.execCommand("copy");
+    }
+  </script>
+</head>
+
+
+<div class="container">
+  <div class="row">
+    {% for image_item in images %}
+      <h3 style="color: azure"> {{image_item.title}} </h3>
+      <div class="col-lg-4 col-lg-4 col-lg-4 col-md-12 ">
+        <img src="{{image_item.image.url}}" class=" img img-responsive" data-toggle="modal" data-target="#{{image_item.id}}">
+      </div>
+      <div class="modal fade" id="{{image_item.id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-header text-center">
+              <h3 class="modal-title" id="exampleModalLongTitle">{{image_item.title}}</h3>
+              <h4 class="modal-title">{{image_item.location}}</h4>
+              <h5 class="modal-title">{{image_item.post_date}}</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              </button>image_item
+            </div>
+            <div class="modal-body">
+              <div class="text-center">
+                <img src='{{image_item.image.url}}' class="img-responsive" width=100% height=100% alt="Image">
+              </div>
+            </div>
+            <div class="modal-footer">
+              <div class="form-group row">
+                <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10 padding-1">
+                  <input id="{{image_item.id}}-url" class="form-control input-md responsive" type="text"
+                    value="{{image_item.image.url}}">
+                </div>
+                <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 padding-2">
+                  <button class="btn btn-secondary" onclick="copyToClipboard('#{{image_item.id}}-url')">Copy</button>
+                </div>
+              </div>
+              <div class="text-center">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+   
+
+    {% endfor %}
+  </div>
+
+
+
+</div>
+
+
+{% endblock %}

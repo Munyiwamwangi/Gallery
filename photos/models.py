@@ -69,7 +69,7 @@ class Image(models.Model):
         images = cls.objects.filter(pub_date__date=today)
         return images
     
-     @classmethod
+    @classmethod
     def all_images(cls):
         images = cls.objects.all()
         return images
