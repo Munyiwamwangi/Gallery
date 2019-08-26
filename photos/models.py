@@ -5,6 +5,14 @@ import datetime as dt
 class Location(models.Model):
     location = models.CharField(max_length=50)
 
+
+    def save_category(self):
+        self.save()
+        
+    @classmethod
+    def delete_location(cls, location):
+        cls.objects.filter(location=location).delete()
+
     def __str__(self):
         return self.location
 class Category(models.Model):
@@ -12,6 +20,13 @@ class Category(models.Model):
 
     def __str__(self):
         return self.category
+    
+    def save_category(self):
+        self.save()
+
+    @classmethod
+    def delete_category(cls, category):
+        cls.objects.filter(category=category).delete()
     
 class Editor(models.Model):
     name = models.CharField(max_length=50, default='Anonymous')
@@ -59,7 +74,6 @@ class Image(models.Model):
         all_images = cls.objects(image)
         return all_images
 
-
     @classmethod
     def search_image_by_category(cls, search_term):
         images = cls.objects.filter(category__icontains=search_term)
@@ -69,7 +83,7 @@ class Image(models.Model):
     def get_image_by_id(cls, image_id):
         images = cls.objects.filter(image_id)
         return images
-    
+
     @classmethod
     def search_by_location(cls, search_term):
         images = cls.objects.filter(location__icontains=search_term)
