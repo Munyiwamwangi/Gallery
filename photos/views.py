@@ -5,7 +5,6 @@ from .models import Editor, Category, Image
 
 
 # Create your views here.
-
 def about(request):
     return render(request, "about.html")
 
@@ -19,7 +18,6 @@ def images_today(request):
     # FUNCTION TO CONVERT DATE OBJECT TO FIND EXACT DAY
     # day = convert_dates(date)
     return render(request, 'home.html', {"date": date, "images": images})
-
 
 def convert_dates(dates):
 

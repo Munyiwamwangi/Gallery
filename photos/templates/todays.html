@@ -1,50 +1,57 @@
-    {% extends 'base.html' %}
-    {% block content %}
-    {{super }}
-    <head>
-    </div>
-    <script>
-      function copyToClipboard(element) {
-        $(element).select();
-        document.execCommand("copy");
-      }
-    </script>
-  </head>
-  <div class="container">
-    <div class="row">
-      {% for image_item in images %}
-      <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8 container-fluid" style="display: flex;
-      flex-wrap: wrap;" >
-      <h3 style="color: cyan; font-size: 14px;" href="{{image_item.Image.url}} " > {{image_item.title}} </h3>
-      <img src="{{image_item.image.url}}" class=" img img-responsive" data-toggle="modal" data-target="#{{image_item.id}}">
-      <div class="modal fade" id="{{image_item.id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
-      aria-hidden="true">
-      <div class="modal-dialog modal-dialog-centered animation zoomIn" role="document">
-        <div class="modal-content">
-          <div style="color: cyan; font-size: 5px; font-style: italic;" class="modal-header text-center">
-            <h3 class="modal-title" id="exampleModalLongTitle">{{image_item.title}}</h3>
-            <h4 class="modal-title">{{image_item.location}}</h4>
-            <h5 class="modal-title">{{image_item.pub_date}}</h5>
-            <h5 class="modal-title">{{image_item.description}}</h5>
+      {% extends 'base.html' %}
+      {% block content %}
+      {{super }}
+      <head>
+        <script>
+          function copyToClipboard(element) {
+            $(element).select();
+            document.execCommand("copy");
+          }
+        </script>
+      </head>
+      <div style="padding-left: 20%" class="container-fluid">
+        {% for image_item in images %}
+        <div class=" row col-xs-8 col-sm-8 col-md-8 col-lg-8 animation zoomIn" style="display: flex;" >
+          <div class="col-md-7 mr-30  text-center">
+
+            <h6 style="color: green; padding-left:20%; font-style: italic;;" href="{{image_item.Image.url}} " > {{image_item.title}} </h6>
+
           </div>
-          <div class="modal-body">
-            <div class="text-center">
-              <img src='{{image_item.image.url}}' class="img-responsive" width=100% height=100% alt="Image">
+          <div style="padding: 5%" class="img-responsive" width=100% height=100% alt="Image">
+
+            <img src="{{image_item.image.url}}" class=" img img-responsive" data-toggle="modal" data-target="#{{image_item.id}}">
+
+          </div>
+        </div>
+
+
+        <!-- modal -->
+        <div class="modal fade" id="{{image_item.id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered animation zoomIn" role="document">
+          <div class="modal-content">
+            <div style="color: green; font-size: 5px; font-style: italic;" class="modal-header text-center">
+              <h3 class="modal-title" id="exampleModalLongTitle">{{image_item.title}}</h3>
+              <h4 class="modal-title">{{image_item.location}}</h4>
+              <h5 class="modal-title">{{image_item.pub_date}}</h5>
             </div>
-          </div>
-          <div class="modal-footer">
-            <div class="form-group row">
-              <button class="btn btn-secondary" onclick="copyToClipboard('#{{image_item.id}}-url')">Copy link</button>
-              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <div class="modal-body">
+              <div class="text-center">
+                <img src='{{image_item.image.url}}' class="img-responsive" width=100% height=100% alt="Image">
+              </div>
+            </div>
+            <div class="modal-footer">
+              <div class="form-group row">
+                <button class="btn" onclick="copyToClipboard('#{{image_item.id}}-url')">Copy link</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              </div>
             </div>
           </div>
         </div>
       </div>
+
+      {% endfor %}
     </div>
-  </div>
-  {% endfor %}
-</div>
-</div>
 
 
-{% endblock %}
+    {% endblock %}
